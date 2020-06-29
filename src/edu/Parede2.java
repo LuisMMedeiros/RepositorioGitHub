@@ -11,7 +11,7 @@ public class Parede2 {
 	private String id;
 	public boolean construida, antigaParede;
 	private Edu edu;
-	private Player player;
+	private Player2 player;
 	private static int width, height;
 	private static int gordura = 15;
 	

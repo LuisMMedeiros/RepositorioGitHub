@@ -8,8 +8,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.swing.JFrame;
 
@@ -37,10 +35,10 @@ public class Edu extends Canvas implements Runnable, KeyListener{
 		image = new BufferedImage(WIDTH, HEIGHT,BufferedImage.TYPE_INT_RGB);
 		//player 1
 		player = new Player(10, 10, 50, 50, "Polaro" );
-		parede = new Parede(1000, 1000, Parede.getWidth(), Player.getHeight()*2, player.getID());
+		parede = new Parede(1000, 1000, Player.getWidth()*2, Player.getHeight()*2, player.getID());
 		//player 2
 		player2 = new Player2(100, 100, 50, 50, "edu");
-		parede2 = new Parede2(1200, 1000, Parede.getWidth(), Player2.getHeight()*2, player2.getID());
+		parede2 = new Parede2(1200, 1000, Player2.getWidth()*2, Player2.getHeight()*2, player2.getID());
 	}
 	
 	public void initFrame() {
@@ -127,28 +125,22 @@ public class Edu extends Canvas implements Runnable, KeyListener{
 			parede.paredeando();
 			
 		}
-		
-		
-		 if(e.getKeyCode() == KeyEvent.VK_D) {
+		if(e.getKeyCode() == KeyEvent.VK_D) {
 			 player.right = true;
-		 }
-		 else if(e.getKeyCode() == KeyEvent.VK_A) {
-			 player.left = true;
-		 }
-		 
-		 if(e.getKeyCode() == KeyEvent.VK_W) {
-			 player.up = true;
-		 }
-		 
-		 else if(e.getKeyCode() == KeyEvent.VK_S) {
-			 player.down = true;
-		 }
-
-		 if(e.getKeyCode() == KeyEvent.VK_E) {
-			parede.construida = true;
-			parede.paredeando();
-			
 		}
+		else if(e.getKeyCode() == KeyEvent.VK_A) {
+			 player.left = true;
+		}
+		 
+		if(e.getKeyCode() == KeyEvent.VK_W) {
+			 player.up = true;
+		}
+		 
+		else if(e.getKeyCode() == KeyEvent.VK_S) {
+			 player.down = true;
+		}
+		
+		
 		//player 2		
 		
 		if(e.getKeyCode() == KeyEvent.VK_P) {

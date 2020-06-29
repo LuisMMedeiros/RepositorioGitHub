@@ -66,7 +66,7 @@ public class Player2 {
 			(y < Parede.getY() + (height*2))) {
 			x+=speed;
 			
-		//colis�o vertical
+		//colisão vertical
 		}else if ((y+height > Parede.getY())&& (x > Parede.getX() - (width)) && 
 			(x < Parede.getX() + (width*2))&& !(y > Parede.getY() + height)) {
 			y-=speed;	
@@ -75,6 +75,26 @@ public class Player2 {
 			(x < Parede.getX() + (width*2))&& !(y < Parede.getY() + height)) {
 			y+=speed;
 			
+		}
+
+		//parede2
+		if ((x+width == Parede2.getX())&& (y > Parede2.getY() - (height)) && 
+			(y < Parede2.getY() + (height*2))) {
+			x-=speed;
+	
+		}else if ((x == Parede2.getX() + width*2)&& (y > Parede2.getY() - (height)) && 
+			(y < Parede.getY() + (height*2))) {
+			x+=speed;
+	
+		//colisão vertical
+		}else if ((y+height > Parede2.getY())&& (x > Parede2.getX() - (width)) && 
+			(x < Parede2.getX() + (width*2))&& !(y > Parede2.getY() + height)) {
+				y-=speed;	
+		
+		}else if ((y < Parede2.getY() + height*2)&& (x > Parede2.getX() - (width)) && 
+			(x < Parede2.getX() + (width*2))&& !(y < Parede2.getY() + height)) {
+			y+=speed;
+	
 		}
 			
 	

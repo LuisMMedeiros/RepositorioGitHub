@@ -12,7 +12,6 @@ public class Parede {
 	public boolean construida, antigaParede;
 	private Edu edu;
 	private Player player;
-	private static int gordura = 15;
 	
 	public Parede(int x, int y,int width, int height,String id) {
 		this.x = x;
@@ -37,9 +36,7 @@ public class Parede {
 	public String getID() {
 		return this.id;
 	}
-	public static int getGordura() {
-		return gordura;
-	}
+	
 	
 	public void paredeando() {
 		if(Player.getX() != x + 10) {
