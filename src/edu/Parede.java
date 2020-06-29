@@ -7,12 +7,11 @@ import java.awt.Rectangle;
 public class Parede {
 	
 	
-	private static int x, y;
+	private static int x, y, width, height;
 	private String id;
 	public boolean construida, antigaParede;
 	private Edu edu;
 	private Player player;
-	private static int width, height;
 	private static int gordura = 15;
 	
 	public Parede(int x, int y,int width, int height,String id) {
@@ -43,11 +42,11 @@ public class Parede {
 	}
 	
 	public void paredeando() {
-		if(player.getX() != x + 10) {
-			x = player.getX() + 50;
+		if(Player.getX() != x + 10) {
+			x = Player.getX() + 50;
 		}
-		if(player.getY() != y + 10) {
-			y = player.getY() -25;
+		if(Player.getY() != y + 10) {
+			y = Player.getY() -25;
 		}
 	}
 	
@@ -59,7 +58,7 @@ public class Parede {
 	
 	public void render(Graphics g) {
 		if(construida) {
-			g.setColor(Color.cyan);
+			g.setColor(Color.YELLOW);
 			g.fillRect(x, y, width, height);
 		}
 	}

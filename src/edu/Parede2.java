@@ -59,7 +59,7 @@ public class Parede2 {
 	
 	public void render(Graphics g) {
 		if(construida) {
-			g.setColor(Color.red);
+			g.setColor(Color.RED);
 			g.fillRect(x, y, width, height);
 		}
 	}

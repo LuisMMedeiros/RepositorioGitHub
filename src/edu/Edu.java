@@ -25,26 +25,22 @@ public class Edu extends Canvas implements Runnable, KeyListener{
 	private final int SCALE = 4;
 	private final BufferedImage image;
 	
-	public List <Player> entities;
 	private final Player player;
 	private final Parede parede;
-	private final Player player2;
-	private final Parede parede2;
+	private final Player2 player2;
+	private final Parede2 parede2;
 	
 	public Edu() {
 		this.addKeyListener(this);
 		setPreferredSize(new Dimension(WIDTH*SCALE, HEIGHT*SCALE));
 		initFrame();
-		entities = new ArrayList<Player>();
 		image = new BufferedImage(WIDTH, HEIGHT,BufferedImage.TYPE_INT_RGB);
+		//player 1
 		player = new Player(10, 10, 50, 50, "Polaro" );
 		parede = new Parede(1000, 1000, Parede.getWidth(), Player.getHeight()*2, player.getID());
-		
-		player2 = new Player(100, 100, 50, 50, "edu");
-		parede2 = new Parede(1200, 1000, Parede.getWidth(), Player2.getHeight()*2, player2.getID());
-
-		entities.add(player);
-		entities.add(player2);
+		//player 2
+		player2 = new Player2(100, 100, 50, 50, "edu");
+		parede2 = new Parede2(1200, 1000, Parede.getWidth(), Player2.getHeight()*2, player2.getID());
 	}
 	
 	public void initFrame() {
@@ -73,11 +69,10 @@ public class Edu extends Canvas implements Runnable, KeyListener{
 	}
 	
 	public void tick() {
+		player.tick();
 		parede.tick();
-		for(int i = 0; i < entities.size(); i++) {
-			final Player e = entities.get(i);
-			e.tick();
-		}
+		player2.tick();
+		parede2.tick();
 	}
 	public void render() {
 		final BufferStrategy bs  = this.getBufferStrategy();
@@ -90,11 +85,10 @@ public class Edu extends Canvas implements Runnable, KeyListener{
 		g.fillRect(0, 0, WIDTH, HEIGHT);
 		g = bs.getDrawGraphics();
 		g.drawImage(image, 0, 0, WIDTH*SCALE, HEIGHT*SCALE, null);
-		for(int i = 0; i < entities.size(); i++) {
-			final Player e = entities.get(i);
-			e.render(g);
-		}
+		player.render(g);
 		parede.render(g);
+		player2.render(g);
+		parede2.render(g);
 		bs.show();
 ;	}
 		
@@ -157,17 +151,17 @@ public class Edu extends Canvas implements Runnable, KeyListener{
 		}
 		//player 2		
 		
-		if(e.getKeyCode() == KeyEvent.VK_E) {
+		if(e.getKeyCode() == KeyEvent.VK_P) {
 			parede2.construida = true;
 			parede2.paredeando();
 		}	
 
 		 if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
-			 player.right = true;
+			 player2.right = true;
 
 		 }
 		 else if(e.getKeyCode() == KeyEvent.VK_LEFT) {
-			 player.left = true;
+			 player2.left = true;
 		 }
 		 
 		 if(e.getKeyCode() == KeyEvent.VK_UP) {
